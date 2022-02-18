@@ -1,5 +1,6 @@
 public class Evaluador implements IPosfixCalc {
 
+    public Evaluador(){}
 
     @Override
     /**
