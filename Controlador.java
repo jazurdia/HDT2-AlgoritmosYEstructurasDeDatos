@@ -9,7 +9,7 @@ public class Controlador {
     public Controlador(){
         System.out.println("Ingresa la dirección del archivo que debe ser leído. ");
         Scanner scan = new Scanner(System.in);
-        reader = new Reader(scan.nextLine());
+        reader = new Reader(scan.nextLine()); //path 
         stack = reader.readFile();
         scan.close();
 

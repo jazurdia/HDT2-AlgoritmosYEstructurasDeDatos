@@ -8,45 +8,46 @@ public class Evaluador implements IPosfixCalc {
      * @param expresion: it gives a string with the two one-digit numbers and an operation to perform. 
      * @return the result of the operation. 
      */
-    public int Evaluate(String expresion) {
+    public int Evaluate(String expresion) { // recibirá 
 
-        String[] parts = expresion.split(" ");
-        int numberA = 0;
-        int numberB = 0;
+        StackAL<String> stack = new StackAL<String>();
+        String[] expresionparts = expresion.split("|");
         int ans = 0;
-        
-        try {
-            numberA = Integer.parseInt(parts[0]);
-        } catch (NumberFormatException ex) {
-            ex.printStackTrace();
-            System.out.println("Ha ocurrido un error. ");
-        }
+        //List<String> partslist = Arrays.asList(expresionparts);
 
-        try {
-            numberB = Integer.parseInt(parts[1]);
-        } catch (NumberFormatException ex) {
-            ex.printStackTrace();
-            System.out.println("Ha ocurrido un error. ");
-        }
+        for(int i = 0; i <= expresionparts.length; i++ ){
+            if( Character.isDigit(expresion.charAt(i))){
+                stack.push(expresionparts[i]);
+            } else if(expresionparts[i].equals("+")){
+                int nA = Integer.parseInt(stack.peek());
+                stack.pull();
+                int nB = Integer.parseInt(stack.peek());
+                stack.pull();
+                ans = nA + nB;
 
-        switch (parts[2]) {
-            case "+":
-                ans = numberA + numberB;
-                break;
-        
-            case "-":
-                ans = numberA - numberB;
-                break;
-
-            case "*":
-                ans = numberA * numberB;
-                break;
+            } else if(expresionparts[i].equals("-")){
+                int nA = Integer.parseInt(stack.peek());
+                stack.pull();
+                int nB = Integer.parseInt(stack.peek());
+                stack.pull();
+                ans = nA - nB;
             
-            case "/": 
-                ans = numberA/numberB;
-                break;
-        }
+            } else if(expresionparts[i].equals("*")){
+                int nA = Integer.parseInt(stack.peek());
+                stack.pull();
+                int nB = Integer.parseInt(stack.peek());
+                stack.pull();
+                ans = nA * nB;
 
+            } else if(expresionparts[i].equals("/")){
+                int nA = Integer.parseInt(stack.peek());
+                stack.pull();
+                int nB = Integer.parseInt(stack.peek());
+                stack.pull();
+                ans = nA / nB;
+            
+            }
+        }
         return ans;
     }
     
