@@ -1,4 +1,4 @@
-public interface IPosfixCalc{
+public interface IPosfixCalc {
 
 	/***
 	 * This method is used to evaluate a postfix expression

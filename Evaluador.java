@@ -1,4 +1,4 @@
-public class Evaluador implements IposFixCalc {
+public class Evaluador implements IPosfixCalc {
 
 
     @Override
