@@ -2,6 +2,11 @@ public class Evaluador implements IPosfixCalc {
 
 
     @Override
+    /**
+     * Evaluate does the math on the code. 
+     * @param expresion: it gives a string with the two one-digit numbers and an operation to perform. 
+     * @return the result of the operation. 
+     */
     public int Evaluate(String expresion) {
 
         String[] parts = expresion.split(" ");
