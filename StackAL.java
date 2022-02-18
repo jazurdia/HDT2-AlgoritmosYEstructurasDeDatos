@@ -11,7 +11,6 @@ public class StackAL<T> implements IStack<T>{
 
     @Override
     public void push(T value) {
-        // TODO Auto-generated method stub
         pila.add(0, value);
         
     }
