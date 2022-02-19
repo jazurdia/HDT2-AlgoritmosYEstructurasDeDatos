@@ -5,6 +5,10 @@ import java.util.List;
 
 public class Evaluador2 implements IPosfixCalc {
 
+    /**
+     * @param expresion string with the postfix instructions.
+     * @return int the result of the instructiosn.
+     */
     @Override
     public int Evaluate(String expresion) {
 
