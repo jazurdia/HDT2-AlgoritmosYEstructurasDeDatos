@@ -25,8 +25,7 @@ public class Controlador {
 
         for (int i = 0; i < stack.count(); i++) {
             // System.out.println(eval.Evaluate(stack.peek()));
-            int finaleAns = eval.Evaluate(stack.peek());
-            stack.pull();
+            int finaleAns = eval.Evaluate(stack.pull());
             System.out.println("Hemos llegado hasta aquí");
             System.out.println(finaleAns);
 

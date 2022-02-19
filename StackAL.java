@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class StackAL<T> implements IStack<T>{
+public class StackAL<T> implements IStack<T> {
 
     private ArrayList<T> pila;
 
-    public StackAL(){
+    public StackAL() {
         pila = new ArrayList<T>();
 
     }
@@ -12,18 +12,19 @@ public class StackAL<T> implements IStack<T>{
     @Override
     public void push(T value) {
         pila.add(0, value);
-        
+
     }
 
     @Override
     public T pull() {
-        return pila.remove(0);
+        T temp = pila.get(0);
+        pila.remove(0);
+        return temp;
     }
 
     @Override
     public T peek() {
-        pila.get(0);
-        return null;
+        return pila.get(0);
     }
 
     @Override
@@ -35,5 +36,18 @@ public class StackAL<T> implements IStack<T>{
     public boolean isEmpty() {
         return pila.isEmpty();
     }
-    
+
+    @Override
+    public String toString() {
+
+        String stackToString = "";
+
+        for (int i = 0; i < pila.size(); i++) {
+            stackToString = stackToString + "," + pila.get(i);
+        }
+
+        return stackToString;
+
+    }
+
 }

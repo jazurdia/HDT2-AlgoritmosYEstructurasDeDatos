@@ -4,12 +4,13 @@ import java.util.List;
 public class Evaluador2 implements IPosfixCalc {
 
     @Override
-
     public int Evaluate(String expresion) {
 
         StackAL<Integer> numStack = new StackAL<Integer>();
         // List<String> expresionparts = Arrays.asList(expresion.split("|"));
         String[] arrayExpresions = expresion.split("|");
+
+        // System.out.println(Arrays.toString(arrayExpresions));
         List<String> listExpresions = Arrays.asList(arrayExpresions);
         int ans = 0;
         for (int i = 0; i < listExpresions.size(); i++) {
@@ -19,35 +20,29 @@ public class Evaluador2 implements IPosfixCalc {
 
             } else if (listExpresions.get(i).equals("+")) { // operación suma. Los últimos dos elementos de numstack
                                                             // serán sumados y eliminados.
-                int a = numStack.peek();
-                numStack.pull();
-                int b = numStack.peek();
-                numStack.pull();
+                int a = numStack.pull();
+                int b = numStack.pull();
                 ans = a + b;
 
             } else if (listExpresions.get(i).equals("-")) { // operación resta. Los últimos dos elementos de numstack
                                                             // serán restados y eliminados.
-                int a = numStack.peek();
-                numStack.pull();
-                int b = numStack.peek();
-                numStack.pull();
+                int a = numStack.pull();
+                int b = numStack.pull();
                 ans = a - b;
 
             } else if (listExpresions.get(i).equals("*")) { // operación producto. Los últimos dos elementos de numstack
                                                             // serán multiplicados y eliminados.
-                int a = numStack.peek();
-                numStack.pull();
-                int b = numStack.peek();
-                numStack.pull();
+                int a = numStack.pull();
+                int b = numStack.pull();
                 ans = a * b;
 
             } else if (listExpresions.get(i).equals("/")) { // operación division. Los últimos dos elementos de numstack
                                                             // serán divididos y eliminados.
-                int a = numStack.peek();
-                numStack.pull();
-                int b = numStack.peek();
-                numStack.pull();
+
+                int a = numStack.pull();
+                int b = numStack.pull();
                 ans = a / b;
+
             }
         }
         return ans;
